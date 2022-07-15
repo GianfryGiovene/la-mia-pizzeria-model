@@ -1,7 +1,12 @@
-﻿namespace LaMiaPizzeria
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LaMiaPizzeria.Models
 {
     public class Pizza
     {
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
@@ -9,10 +14,10 @@
 
         public Pizza(string name, string description, string photoUrl, double price)
         {
-            this.Name = name;
-            this.Description = description;
-            this.PhotoUrl = photoUrl;
-            this.Price = price;
+            Name = name;
+            Description = description;
+            PhotoUrl = photoUrl;
+            Price = price;
         }
 
     }

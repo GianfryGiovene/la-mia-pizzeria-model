@@ -8,11 +8,12 @@ namespace LaMiaPizzeria.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
 
-        public IActionResult IngredientiPizza()
-        {
+        public IActionResult Details(int id)
+        {            
             return View();
         }
     }
