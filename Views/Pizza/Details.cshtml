@@ -1,4 +1,7 @@
 ﻿@model Pizza
+@{
+    
+}
 
 
 <div class="container text-dark">
@@ -12,10 +15,20 @@
             <p>@Model.Description</p>
             <h3>Prezzo</h3>
             <span>@Model.Price &euro;</span>
-        </div>
+            
+            <h3>Ingredienti</h3>
+            @if(Model.IngredienteList.Count() > 0)
+            {
+                foreach(Ingrediente ing in Model.IngredienteList)
+                {                
+                    <span> @ing.Name</span>
+                }
+            }
+            else
+            {
+                <span>-</span>
+            }
     </div>
-    <a  class="btn btn-danger mt-2" href="@Url.Action("Index","Pizza")">Indietro</a>
-    
-
+    <a  class="btn btn-danger mt-2 " href="@Url.Action("Index","Pizza")">Indietro</a>
 </div>
 

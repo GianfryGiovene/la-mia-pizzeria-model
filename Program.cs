@@ -3,18 +3,34 @@ using LaMiaPizzeria.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//using(PizzaContext db = new PizzaContext())
+//using (PizzaContext db = new PizzaContext())
 //{
-//    db.Add(new Pizza("Margherita", "La pizza classica per eccellenza", "https://cdn.shopify.com/s/files/1/0586/6795/8427/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800", 6.5));
-//    db.Add(new Pizza("Diavola", "La pizza piccante per eccellenza", "https://www.misya.info/wp-content/uploads/2007/08/Pizza-alla-diavola.jpg", 7.5));
-//    db.Add(new Pizza("Vegetariana", "La pizza con verdure per eccellenza", "https://blog.giallozafferano.it/maniamore/wp-content/uploads/2015/06/pizza-ratatouille.jpg", 8.5));
-//    db.Add(new Pizza("Frutti di mare", "La pizza di mare per eccellenza", "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-ai-frutti-di-mare.jpg", 12.5));
+//    db.Add(new Ingrediente("Salsa"));
+//    db.Add(new Ingrediente("Salame"));
+//    db.Add(new Ingrediente("Mozzarella"));
+//    db.Add(new Ingrediente("Peperoni"));
+//    db.Add(new Ingrediente("Zucchine"));
+//    db.Add(new Ingrediente("Salsiccia"));
+//    db.Add(new Ingrediente("Cicogna"));
+//    db.Add(new Ingrediente("Vasellina"));
 //    db.SaveChanges();
+//}
+//using (PizzaContext db = new PizzaContext())
+//{
+//    List<Ingrediente> ingredienteList = db.IngredienteList.ToList<Ingrediente>();
+//    List<Pizza> pizzaList = db.PizzaList.ToList<Pizza>();
+
+//    pizzaList[0].SetIngredienti(ingredienteList[0], ingredienteList[2]);
+//    pizzaList[1].SetIngredienti(ingredienteList[0], ingredienteList[2], ingredienteList[1]);
+//    pizzaList[2].SetIngredienti(ingredienteList[4], ingredienteList[3], ingredienteList[3]);
+//    pizzaList[3].SetIngredienti(ingredienteList[6], ingredienteList[7]);
+//    db.SaveChanges();
+
 //}
 
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+    // Add services to the container.
+    builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages()
     .AddRazorRuntimeCompilation();
 
