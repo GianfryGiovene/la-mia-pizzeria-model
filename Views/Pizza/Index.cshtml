@@ -1,11 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Lista Pizze";
-    List<Pizza> pizzas = new List<Pizza>();
-    pizzas.Add(new Pizza("Margherita", "La pizza classica per eccellenza", "https://cdn.shopify.com/s/files/1/0586/6795/8427/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800", 6.5));
-    pizzas.Add(new Pizza("Diavola", "La pizza piccante per eccellenza", "https://www.misya.info/wp-content/uploads/2007/08/Pizza-alla-diavola.jpg", 7.5));
-    pizzas.Add(new Pizza("Vegetariana", "La pizza con verdure per eccellenza", "https://blog.giallozafferano.it/maniamore/wp-content/uploads/2015/06/pizza-ratatouille.jpg", 8.5));
-    pizzas.Add(new Pizza("Frutti di mare", "La pizza di mare per eccellenza", "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-ai-frutti-di-mare.jpg", 12.5));
 }
+
+@model List<Pizza>
+
 <div>
     <table  class="table table-hover">
         <tr>
@@ -16,15 +14,14 @@
             <th class="col-2">Ingredienti</th>
         </tr>
 
-        @foreach(Pizza pizza in pizzas)
+        @foreach(Pizza pizza in Model)
         {
             <tr class="my-lg-2 ">
                 <td><img src="@pizza.PhotoUrl" class="w-50"/></td>
                 <td class="align-middle">@pizza.Name</td>
                 <td class="align-middle">@pizza.Description</td>
                 <td class="align-middle">@pizza.Price euro</td>
-                <td class="align-middle"><a aasp-controller="Pizza" asp-action="IngredientiPizza">Ingredienti</a></td>
-
+                <td class="align-middle"><a href="@Url.Action("Details","Pizza",new { id = @pizza.Id})">Visualizza</a></td>
              </tr>
         }
     </table>

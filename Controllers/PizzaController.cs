@@ -1,4 +1,5 @@
-﻿using LaMiaPizzeria.Models;
+﻿using LaMiaPizzeria.Data;
+using LaMiaPizzeria.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,13 +9,31 @@ namespace LaMiaPizzeria.Controllers
     {
         public IActionResult Index()
         {
+            using (PizzaContext db = new PizzaContext())
+            {
+                List<Pizza> pizzaList = db.PizzaList.OrderBy(pizza => pizza.Id).ToList<Pizza>();
+                if(pizzaList == null)
+                {
+                    return NotFound("Pizze non presenti");
+                }
+                return View(pizzaList);
+            }
 
-            return View();
         }
 
         public IActionResult Details(int id)
-        {            
-            return View();
+        {
+            using (PizzaContext db = new PizzaContext())
+            {
+                Pizza pizza  = db.PizzaList.Where(pizza => pizza.Id == id).FirstOrDefault();
+
+                if(pizza == null)
+                {
+                    return NotFound("Pizza non trovata");
+                }
+                return View("Details",pizza);
+            }
+
         }
     }
 }
